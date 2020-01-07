@@ -1,0 +1,73 @@
+<html>
+      <head>
+          <meta charset="utf -8">
+          <!-- responsice -->
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+          <!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../static/style.css')}}">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script type="text/JavaScript">
+        
+    </script>
+	</head>
+
+   <body>
+	<img src="static/icfoss.jpeg " style="width:300px;height:100px;align:center" class="center">
+   
+      <form action = "/uploader" method = "POST"  id="upForm" enctype = "multipart/form-data">
+       <h1 align="middle">Malayalam Stopword Removal</h1>
+          <div class="text-center" >
+        <p> Enter File containing data: </p>
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<label class="custom-file-upload">
+         <input type = "file" name = "file"/>
+          <input class="button"  id="btnSubmit" type="submit" onclick="showMessage()" value="submit"/>
+	<p>Click here to download the file</p>
+          <a href="/download"><span id=downld>Download</span></a> 
+<div>
+	 <span id="txtArea" rows="20" cols= "100"></span>
+	</div>
+		
+
+           
+          </div>
+      </form>
+<script>
+$(document).ready(function() {
+    $(document).on("submit", "form", function(event)
+{
+    event.preventDefault();
+
+    var url=$(this).attr("action");
+    $.ajax({
+        url: url,
+        type: 'POST',            
+        data: new FormData(this),
+        processData: false,
+        contentType: false,
+        success: function (data, status)
+        {
+		$('#txtArea').text(data);
+        }
+    });
+});
+});
+</script>
+</div>
+</body>
+</html>
+      
+   </body>
+</html>

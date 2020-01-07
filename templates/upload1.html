@@ -1,0 +1,33 @@
+<html>
+      <head>
+	 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        	<script type="text/javascript">
+         	 jQuery(function($){
+             	 $('#mybutton').one('click', function(){
+                  	var r=$('<input/>').attr({
+                      type: "button",
+                      id: "field",
+                      value: 'new'
+                  });
+                  $("body").append(r);   
+              })
+          })
+        </script>
+	</head>
+
+   <body>
+	<img src="static/icfoss.jpeg " style="width:300px;height:100px;align:center" class="center">
+   
+      <form action = "http://localhost:5000/uploader" method = "POST"   enctype = "multipart/form-data">
+       <h1>Malayalam Stopword Removal</h1>
+
+         <p>Enter File containing data</p>
+        
+       
+         <input type = "file" name = "file"/>
+        input type="button" value="add text" id="mybutton" />
+	 <textarea rows="4" cols="50">{{result}}</textarea> 
+      </form>
+      
+   </body>
+</html>
